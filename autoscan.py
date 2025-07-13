@@ -29,8 +29,8 @@ async def process_symbol(session, symbol):
     try:
         df = await fetch_klines(session, symbol)
         if detect_patterns(df):
-            generate_chart(df, symbol)
-            send_telegram_message(f"🚀 Pattern detected on {symbol}")
+            await generate_chart(df, symbol)
+            await send_telegram_message(f"🚀 Pattern detected on {symbol}")
     except Exception as e:
         print(f"Error processing {symbol}: {e}")
         await generate_chart(df, symbol)
