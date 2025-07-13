@@ -33,3 +33,5 @@ async def process_symbol(session, symbol):
             send_telegram_message(f"🚀 Pattern detected on {symbol}")
     except Exception as e:
         print(f"Error processing {symbol}: {e}")
+        await generate_chart(df, symbol)
+await send_telegram_message(f"🚀 Pattern detected on {symbol}")
